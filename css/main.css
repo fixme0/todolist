@@ -1,0 +1,200 @@
+.main-block {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #E1E1E1;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+.main-block-wrapper {
+    min-height: 300px;
+    width: 100%;
+    max-width: 600px;
+    background-color: #EEF3F6;
+    position: relative;
+}
+.main-block-wrapper__title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    color: #ccc;
+    font-size: 40px;
+    text-align: center;
+    width: 100%;
+    padding-top: 67px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+.haveTodo .main-block-wrapper__title {
+    visibility: hidden;
+}
+.todo-form {
+    background-color: #19BA99;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+.todo-form__input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: #65C4AE;
+    font-size: 20px;
+    padding: 10px;
+    padding-right: 30px;
+    color: #fff;
+    width: calc(100% - 43px);
+    box-sizing: border-box;
+    border-bottom: 2px solid transparent;
+    border-top: 2px solid transparent;
+    letter-spacing: 1px;
+    transition: .4s;
+    transition-property: border-bottom-color,  background-color;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+.todo-form__input:focus {
+    border-bottom-color: #fff;
+    background-color: rgba(101, 196, 174, 0.6);
+}
+.todo-form__input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+.todo-form__input::-moz-placeholder { /* Firefox 19+ */
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+.todo-form__input:-ms-input-placeholder { /* IE 10+ */
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+.todo-form__input:-moz-placeholder { /* Firefox 18- */
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+.todo-form__btn {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 47px;
+    width: 47px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color .4s;
+}
+.todo-form__btn:hover {
+    background-color: #E1E1E1;
+}
+.todo-form__btn:hover:after {
+    transform: translate(-50%, -50%) rotate(90deg) scale(1.1);
+}
+.todo-form__btn:after {
+    content: '+';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: #19BA99;
+    line-height: 1;
+    transition: transform .4s;
+    will-change: transform;
+}
+
+/*item*/
+
+.todo-list {
+    margin-top: 20px;
+    padding: 0 10px;
+}
+.todo-list-item {
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px -3px rgba(0,0,0,0.75);
+    margin-bottom: 20px;
+    transition: opacity .4s;
+}
+.complete.todo-list-item {
+    opacity: .5;
+}
+.todo-list-item {
+    display: flex;
+    justify-content: space-between;
+}
+.todo-list-item__currentToDo {
+    font-size: 20px;
+    cursor: text;
+}
+.complete .todo-list-item__currentToDo {
+    text-decoration: line-through;
+}
+.complete .fa-pencil-square-o,
+.complete .fa-trash-o{
+	pointer-events: none;
+}
+.todo-list-item-settings {
+    position: relative;
+}
+.todo-list-item-settings i {
+    margin-left: 10px;
+    font-size: 30px;
+    color: #19BA99;
+    cursor: pointer;
+    padding-bottom: 5px;
+    position: relative;
+}
+.todo-list-item-settings i:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    min-width: 0;
+    height: 2px;
+    background-color: black;
+    transition: min-width .4s;
+}
+.todo-list-item-settings i:last-child {
+    color: red;
+}
+.todo-list-item-settings i:first-child {
+    margin-left: 0;
+}
+.todo-list-item-settings i:hover {
+    color: #000;
+}
+.todo-list-item-settings i:hover:after {
+    min-width: 100%;
+}
+.rewrite .todo-list-item__currentToDo {
+    display: none;
+}
+.todo-list-item__inp {
+    display: none;
+}
+.rewrite .todo-list-item__inp {
+    display: block;
+    outline: none;
+    font-size: 20px;
+    padding-left: 10px;
+}
+.rewrite .todo-list-item-settings i:first-child,
+.complete .todo-list-item-settings i:nth-child(2){
+    color: #000;
+}
+.rewrite .todo-list-item-settings i:first-child:after,
+.complete .todo-list-item-settings i:nth-child(2):after {
+    min-width: 100%;
+}
